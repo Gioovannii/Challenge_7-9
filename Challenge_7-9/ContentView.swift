@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct Dreams: Identifiable, Codable {
+    var id = UUID()
+    let name: String
+    let type: String
+    let description: String
+}
+
+class Activities: ObservableObject {
+    @Published var items = [Dreams]()
+}
+
 struct ContentView: View {
     var body: some View {
         
