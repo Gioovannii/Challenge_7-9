@@ -12,7 +12,7 @@ struct AddView: View {
     @ObservedObject var activities: Activities
     @State private var name  = ""
     @State private var type = "Dream"
-    @State private var image = "photo.fill"
+    @State private var image = "partying-face"
     @State private var description = ""
     @State private var showingAlert = false
     
