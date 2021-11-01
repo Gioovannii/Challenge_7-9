@@ -15,6 +15,7 @@ struct Dreams: Identifiable, Codable {
     let description: String
 }
 
+
 class Activities: ObservableObject {
     @Published var items = [Dreams]()
 }
@@ -44,15 +45,17 @@ struct ContentView: View {
                     }
                     .onDelete(perform: removeDreams(at:))
                 }
-                .navigationBarItems(trailing:
+                .navigationTitle("Dream Reminder")
+                .navigationBarItems(leading: EditButton(), trailing:
                                         Button(action: {
-                    let exampleActivity = Dreams(id: UUID(), name: "First dream", type: "dream", image: "sad", description: "A short description of a dream")
-                    activities.items.append(exampleActivity)
-                    // more code to come
+                    self.showDreams = true
                 }) {
                     Image(systemName: "plus")
                 })
-                .navigationTitle("Dream Reminder")
+                .sheet(isPresented: $showDreams) {
+                    AddView(activities: self.activities)
+                }
+                
             }
         }
     }
