@@ -42,9 +42,19 @@ struct AddView: View {
                     }
                     .pickerStyle(.segmented)
                     
+                    TextField("Enter your \(type) here ", text: $description)
+                        .font(.headline)
+                        .frame(height: 200)
                     
                 }
                 .navigationTitle("Add a new dream")
+                .navigationBarItems(trailing:
+                                        Button("Save") {
+                    let dream = Dreams(name: name, type: type, image: image, description: description)
+                    self.activities.items.append(dream)
+                    
+                    presentationMode.wrappedValue.dismiss()
+                })
             }
         }
     }
