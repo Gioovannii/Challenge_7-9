@@ -19,6 +19,8 @@ class Activities: ObservableObject {
 }
 
 struct ContentView: View {
+    @ObservedObject var activities = Activities()
+    @State private var showDreams = false
     var body: some View {
         
         ZStack {
