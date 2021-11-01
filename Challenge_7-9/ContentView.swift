@@ -41,9 +41,9 @@ struct ContentView: View {
                             Image(item.image)
                         }
                     }
+                    .onDelete(perform: removeDreams(at:))
                 }
-                .navigationBarItems(leading: EditButton(),
-                                    trailing:
+                .navigationBarItems(trailing:
                                         Button(action: {
                     let exampleActivity = Dreams(id: UUID(), name: "First dream", type: "dream", image: "sad", description: "A short description of a dream")
                     activities.items.append(exampleActivity)
@@ -54,6 +54,10 @@ struct ContentView: View {
                 .navigationTitle("Dream Reminder")
             }
         }
+    }
+    
+    func removeDreams(at offsets: IndexSet) {
+        activities.items.remove(atOffsets: offsets)
     }
 }
 
