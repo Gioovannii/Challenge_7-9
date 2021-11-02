@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DescriptionView: View {
-    let dream: Dreams
+    let dream: DreamRepresentable
     
     var body: some View {
         
@@ -33,7 +33,7 @@ struct DescriptionView: View {
 
 struct DescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        DescriptionView(dream: Dreams(name: "My name", type: "Nightmare", image: "sad", description: "A short example description"))
+        DescriptionView(dream: DreamRepresentable(name: "My name", type: "Nightmare", image: "sad", description: "A short example description"))
             .preferredColorScheme(.dark)
     }
 }
