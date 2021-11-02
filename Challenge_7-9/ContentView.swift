@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Dreams: Identifiable, Codable {
+struct DreamRepresentable: Identifiable, Codable {
     var id = UUID()
     let name: String
     let type: String
@@ -16,12 +16,35 @@ struct Dreams: Identifiable, Codable {
 }
 
 
-class Activities: ObservableObject {
-    @Published var items = [Dreams]()
+class Dreams: ObservableObject {
+    @Published var dreams = [DreamRepresentable]() {
+        didSet {
+            let encoder = JSONEncoder()
+            
+            if let encoded = try? encoder.encode(dreams) {
+                UserDefaults.standard.set(encoded, forKey: "Dreams")
+            }
+        }
+    }
+    
+    init() {
+        if let dreams = UserDefaults.standard.data(forKey: "Dreams") {
+            let decoder = JSONDecoder()
+            
+            if let decoded = try? decoder.decode([DreamRepresentable].self, from: dreams) {
+                self.dreams = decoded
+                return
+            }
+        }
+        
+        self.dreams = []
+    }
+    
+    
 }
 
 struct ContentView: View {
-    @ObservedObject var activities = Activities()
+    @ObservedObject var activities = Dreams()
     @State private var showDreams = false
     
     var body: some View {
@@ -30,8 +53,8 @@ struct ContentView: View {
                 .ignoresSafeArea()
             NavigationView {
                 List {
-                    ForEach(activities.items) { item in
-                        NavigationLink(destination: DescriptionView(dream: Dreams(name: item.name, type: item.type, image: item.image, description: item.description))) {
+                    ForEach(activities.dreams) { item in
+                        NavigationLink(destination: DescriptionView(dream: DreamRepresentable(name: item.name, type: item.type, image: item.image, description: item.description))) {
                             
                             
                             HStack {
@@ -64,7 +87,7 @@ struct ContentView: View {
     }
     
     func removeDreams(at offsets: IndexSet) {
-        activities.items.remove(atOffsets: offsets)
+        activities.dreams.remove(atOffsets: offsets)
     }
 }
 
