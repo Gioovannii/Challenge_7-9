@@ -17,7 +17,7 @@ struct AddView: View {
     @State private var showingAlert = false
     
     static let types = ["Dream", "Nightmare"]
-    static let moods = ["happy", "partying-face", "sad", "crying-face"]
+    static let moods = ["happy", "partying-face", "sad", "dizzy-face", "crying-face"]
 
     
     var body: some View {
