@@ -31,16 +31,20 @@ struct ContentView: View {
             NavigationView {
                 List {
                     ForEach(activities.items) { item in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(item.name)
-                                    .font(.headline)
-                                Text(item.type)
-
-                            }
+                        NavigationLink(destination: DescriptionView(dream: Dreams(name: item.name, type: item.type, image: item.image, description: item.description))) {
                             
-                            Spacer()
-                            Image(item.image)
+                            
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(item.name)
+                                        .font(.headline)
+                                    Text(item.type)
+                                    
+                                }
+                                
+                                Spacer()
+                                Image(item.image)
+                            }
                         }
                     }
                     .onDelete(perform: removeDreams(at:))
@@ -68,8 +72,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-                
-        }
             
+        }
+        
     }
 }
