@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BA3F0C42730DD5500791147 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3F0C32730DD5500791147 /* DescriptionView.swift */; };
 		7BD82893272F9BB50015E0A3 /* Challenge_7_9App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD82892272F9BB50015E0A3 /* Challenge_7_9App.swift */; };
 		7BD82895272F9BB50015E0A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD82894272F9BB50015E0A3 /* ContentView.swift */; };
 		7BD82897272F9BB60015E0A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD82896272F9BB60015E0A3 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BA3F0C32730DD5500791147 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		7BD8288F272F9BB50015E0A3 /* Challenge_7-9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge_7-9.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD82892272F9BB50015E0A3 /* Challenge_7_9App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_7_9App.swift; sourceTree = "<group>"; };
 		7BD82894272F9BB50015E0A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 				7BD82892272F9BB50015E0A3 /* Challenge_7_9App.swift */,
 				7BD82894272F9BB50015E0A3 /* ContentView.swift */,
 				7BD828A0272FCC010015E0A3 /* AddView.swift */,
+				7BA3F0C32730DD5500791147 /* DescriptionView.swift */,
 				7BD82896272F9BB60015E0A3 /* Assets.xcassets */,
 				7BD82898272F9BB60015E0A3 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				7BD82895272F9BB50015E0A3 /* ContentView.swift in Sources */,
 				7BD82893272F9BB50015E0A3 /* Challenge_7_9App.swift in Sources */,
 				7BD828A1272FCC010015E0A3 /* AddView.swift in Sources */,
+				7BA3F0C42730DD5500791147 /* DescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
