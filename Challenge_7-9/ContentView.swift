@@ -55,7 +55,6 @@ struct ContentView: View {
                 .sheet(isPresented: $showDreams) {
                     AddView(activities: self.activities)
                 }
-                
             }
         }
     }

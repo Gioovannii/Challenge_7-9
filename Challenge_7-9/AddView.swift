@@ -42,7 +42,7 @@ struct AddView: View {
                     }
                     .pickerStyle(.segmented)
                     
-                    TextField("Enter your \(type) here ", text: $description)
+                    TextField("What happened in your \(type)", text: $description)
                         .font(.headline)
                         .frame(height: 200)
                     
