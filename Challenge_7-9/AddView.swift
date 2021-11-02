@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var activities: Activities
+    @ObservedObject var activities: Dreams
     @State private var name  = ""
     @State private var type = "Dream"
     @State private var image = "partying-face"
@@ -50,8 +50,8 @@ struct AddView: View {
                 .navigationTitle("Add a new dream")
                 .navigationBarItems(trailing:
                                         Button("Save") {
-                    let dream = Dreams(name: name, type: type, image: image, description: description)
-                    self.activities.items.append(dream)
+                    let dream = DreamRepresentable(name: name, type: type, image: image, description: description)
+                    self.activities.dreams.append(dream)
                     
                     presentationMode.wrappedValue.dismiss()
                 })
@@ -62,7 +62,7 @@ struct AddView: View {
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView(activities: Activities())
+        AddView(activities: Dreams())
         
     }
 }
